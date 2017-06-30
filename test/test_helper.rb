@@ -6,4 +6,11 @@ class ActiveSupport::TestCase
   fixtures :all
 
   # Add more helper methods to be used by all tests here...
+  def random_values(n = 16, max = 2**16)
+    ([0] * n).map { rand(-max..max) }
+  end
+
+  def random_value
+    random_values(1).first
+  end
 end
