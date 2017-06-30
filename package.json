@@ -1,5 +1,5 @@
 {
-  "name": "budgetshr",
+  "name": "bdgtshr",
   "private": true,
   "dependencies": {
     "autoprefixer": "^7.1.1",
