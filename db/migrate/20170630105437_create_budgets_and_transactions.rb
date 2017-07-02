@@ -8,6 +8,7 @@ class CreateBudgetsAndTransactions < ActiveRecord::Migration[5.1]
     end
 
     create_table :transactions do |t|
+      t.string :key, null: false
       t.belongs_to :budget, index: true
       t.integer :value, null: false
       t.boolean :monthly, default: false

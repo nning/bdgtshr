@@ -8,7 +8,10 @@
 // To reference this file, add <%= javascript_pack_tag 'application' %> to the
 // appropriate layout file, like app/views/layouts/application.html.erb
 
+import RailsUJS from 'rails-ujs'
 import ReactRailsUJS from 'react_ujs'
+
+RailsUJS.start()
 
 // Support component names relative to this directory:
 const componentRequireContext = require.context('components', true)

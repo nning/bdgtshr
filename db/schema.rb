@@ -20,6 +20,7 @@ ActiveRecord::Schema.define(version: 20170630105437) do
   end
 
   create_table "transactions", force: :cascade do |t|
+    t.string "key", null: false
     t.integer "budget_id"
     t.integer "value", null: false
     t.boolean "monthly", default: false

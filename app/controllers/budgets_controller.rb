@@ -6,6 +6,7 @@ class BudgetsController < ApplicationController
       props: {
         path: budget_path(@budget.slug),
         budget: @budget,
+        transactions: @budget.transactions,
         csrf: {
           param: request_forgery_protection_token,
           token: form_authenticity_token
