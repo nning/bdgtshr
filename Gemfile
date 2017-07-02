@@ -9,15 +9,17 @@ end
 gem 'rails', '~> 5.1.2'
 
 gem 'config'
+gem 'hamlit'
 gem 'jbuilder', '~> 2.5'
+gem 'mini_racer', platforms: :ruby
 gem 'puma', '~> 3.7'
+gem 'react-rails'
 gem 'redis', '~> 3.0'
 gem 'sass-rails', '~> 5.0'
 gem 'turbolinks', '~> 5'
 gem 'uglifier', '>= 1.3.0'
 gem 'webpacker'
 
-# gem 'therubyracer', platforms: :ruby
 # gem 'capistrano-rails', group: :development
 
 group :development, :test do
