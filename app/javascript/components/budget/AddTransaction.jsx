@@ -1,5 +1,5 @@
 import React from 'react'
-// import ReactDOM from 'react-dom'
+import ReactDOM from 'react-dom'
 
 export default class AddTransaction extends React.Component {
   constructor(props) {
@@ -8,12 +8,13 @@ export default class AddTransaction extends React.Component {
     this.action = this.props.path + '/transactions'
   }
 
-  // componentDidMount() {
-  //   const form = ReactDOM.findDOMNode(this).querySelector('form')
-  //   form.addEventListener('ajax:success', (e, data, status, xhr) => {
-  //     console.log(e, data, status, xhr)
-  //   })
-  // }
+  componentDidMount() {
+    const form = ReactDOM.findDOMNode(this).querySelector('form')
+    form.addEventListener('ajax:success', (e) => {
+      const response = e.detail[0]
+      console.log(response)
+    })
+  }
 
   render() {
     return (
@@ -22,7 +23,7 @@ export default class AddTransaction extends React.Component {
           <input type="hidden" name={this.props.csrf.param} value={this.props.csrf.token}/>
           <input name="value"/>
           <button name="subtract" type="submit">-</button>
-          <button name="add" type="submit">+</button>
+          <button type="submit">+</button>
         </form>
       </section>
     );
