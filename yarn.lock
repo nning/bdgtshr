@@ -27,6 +27,10 @@ acorn@^5.0.0:
   version "5.0.3"
   resolved "https://registry.yarnpkg.com/acorn/-/acorn-5.0.3.tgz#c460df08491463f028ccb82eab3730bf01087b3d"
 
+actioncable@^5.1.2:
+  version "5.1.2"
+  resolved "https://registry.yarnpkg.com/actioncable/-/actioncable-5.1.2.tgz#a83268e386963ad66f96b931ad9b294a36702c62"
+
 adjust-sourcemap-loader@^1.1.0:
   version "1.1.0"
   resolved "https://registry.yarnpkg.com/adjust-sourcemap-loader/-/adjust-sourcemap-loader-1.1.0.tgz#412d92404eb61e4113635012cba53a33d008e0e2"

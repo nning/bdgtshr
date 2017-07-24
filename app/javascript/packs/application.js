@@ -17,4 +17,7 @@ RailsUJS.start()
 const componentRequireContext = require.context('components', true)
 ReactRailsUJS.useContext(componentRequireContext)
 
+import ActionCable from 'actioncable'
+window.cable = ActionCable.createConsumer()
+
 import '../components/budget/Budget.jsx'

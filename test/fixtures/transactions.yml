@@ -2,8 +2,10 @@
 
 one:
   value: 1
+  key: one
   budget: one
 
 two:
   value: 1
+  key: two
   budget: two

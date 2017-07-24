@@ -1,6 +1,8 @@
 class Transaction < ApplicationRecord
   belongs_to :budget
 
+  default_scope -> { where('created_at >= ?', Time.now.beginning_of_month) }
+
   scope :once, -> { where(monthly: false) }
   scope :monthly, -> { where(monthly: true) }
 
@@ -23,6 +25,7 @@ class Transaction < ApplicationRecord
 
   def update_budget
     budget.update_balance!
+    budget.broadcast_change!
   end
 
   def update_key

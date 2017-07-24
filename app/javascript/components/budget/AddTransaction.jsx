@@ -8,13 +8,13 @@ export default class AddTransaction extends React.Component {
     this.action = this.props.path + '/transactions'
   }
 
-  componentDidMount() {
-    const form = ReactDOM.findDOMNode(this).querySelector('form')
-    form.addEventListener('ajax:success', (e) => {
-      const response = e.detail[0]
-      console.log(response)
-    })
-  }
+  // componentDidMount() {
+  //   const form = ReactDOM.findDOMNode(this).querySelector('form')
+  //   form.addEventListener('ajax:success', (e) => {
+  //     const response = e.detail[0]
+  //     this.props.callback(response)
+  //   })
+  // }
 
   render() {
     return (
