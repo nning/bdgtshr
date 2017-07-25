@@ -4,15 +4,17 @@ class TransactionsController < ApplicationController
   def create
     subtract = params.delete(:subtract)
 
-    transaction = Transaction.from_param(params[:value], !!subtract)
-    transaction.budget = budget
+    t = Transaction.new(value: params[:value])
+    t.budget = budget
+
+    t.value = t.value * -1 if !!subtract
 
     begin
-      transaction.save!
+      t.save!
     rescue ActiveRecord::RecordInvalid
       response = { error: 'ActiveRecord::RecordInvalid' }
     else
-      response = { transaction: transaction }
+      response = { transaction: t }
     end
 
     render json: response

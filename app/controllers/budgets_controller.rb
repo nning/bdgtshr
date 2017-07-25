@@ -5,7 +5,7 @@ class BudgetsController < ApplicationController
     render component: 'budget/Budget',
       props: {
         path: budget_path(budget),
-        budget: budget.as_json(include: :transactions),
+        budget: budget.as_json_with_transactions,
         csrf: {
           param: request_forgery_protection_token,
           token: form_authenticity_token

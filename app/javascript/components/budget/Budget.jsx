@@ -40,7 +40,7 @@ export default class Budget extends React.Component {
       <section className="Budget">
         <BudgetDisplay budget={this.state.budget}/>
         <AddTransaction path={this.props.path} csrf={this.props.csrf}/>
-        <TransactionList transactions={this.state.budget.transactions}/>
+        <TransactionList transactions={this.state.budget.recent_transactions}/>
       </section>
     );
   }
