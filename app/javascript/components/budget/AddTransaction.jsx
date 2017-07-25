@@ -21,9 +21,19 @@ export default class AddTransaction extends React.Component {
       <section className="AddTransaction">
         <form action={this.action} method="POST" data-remote="true">
           <input type="hidden" name={this.props.csrf.param} value={this.props.csrf.token}/>
-          <input name="value"/>
-          <button name="subtract" type="submit">-</button>
-          <button type="submit">+</button>
+          <div className="columns is-mobile is-gapless">
+            <div className="column">
+              <input className="input" name="value"/>
+            </div>
+
+            <div className="column is-narrow">
+              <button className="button" name="subtract" type="submit">-</button>
+            </div>
+
+            <div className="column is-narrow">
+              <button className="button" type="submit">+</button>
+            </div>
+          </div>
         </form>
       </section>
     );
