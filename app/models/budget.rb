@@ -6,7 +6,7 @@ class Budget < ApplicationRecord
   has_many :transactions, dependent: :destroy
 
 
-  valueable :balance
+  valueable :monthly, :weekly, :daily
 
 
   def as_json(options = {})
@@ -15,7 +15,11 @@ class Budget < ApplicationRecord
   end
 
   def as_json_with_transactions
-    as_json(methods: :recent_transactions)
+    as_json(methods: [
+      :monthly, :weekly, :daily,
+      :monthly_income, :weekly_income, :daily_income,
+      :recent_transactions
+    ])
   end
 
   def broadcast_change!
@@ -23,19 +27,49 @@ class Budget < ApplicationRecord
   end
 
   def recent_transactions
-    transactions.once.this_week
+    transactions.this_week
   end
 
-  def update_balance!
-    monthly = calculate_value_sum(transactions.monthly)
-    monthly = monthly / 4 if monthly > 0
+  def update!
+    update_monthly!
+    update_weekly!
+    update_daily!
+  end
 
-    once = calculate_value_sum(recent_transactions)
+  def update_monthly!
+    expenses = calculate_value_sum(transactions.this_month)
+    sum = monthly_income + expenses
 
-    balance = monthly + once
+    update_attributes!(monthly: sum)
+    sum
+  end
 
-    update_attributes!(balance: balance)
-    balance
+  def update_weekly!
+    expenses = calculate_value_sum(transactions.this_week)
+    sum = weekly_income + expenses
+
+    update_attributes!(weekly: sum)
+    sum
+  end
+
+  def update_daily!
+    expenses = calculate_value_sum(transactions.today)
+    sum = daily_income + expenses 
+
+    update_attributes!(daily: sum)
+    sum
+  end
+
+  def monthly_income
+    daily_income * Time.now.end_of_month.day
+  end
+
+  def weekly_income
+    daily_income * 7
+  end
+
+  def daily_income
+    @daily_income ||= calculate_value_sum(transactions.monthly) * 12 / 365
   end
 
   

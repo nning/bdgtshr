@@ -1,9 +1,11 @@
 module ValueAble
-  def valueable(a)
-    a = a.to_sym
+  def valueable(*attrs)
+    attrs.each do |a|
+      a = a.to_sym
 
-    define_getter(a)
-    define_setter(a)
+      define_getter(a)
+      define_setter(a)
+    end
   end
 
   protected

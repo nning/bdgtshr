@@ -2,9 +2,13 @@ class CreateBudgetsAndTransactions < ActiveRecord::Migration[5.1]
   def change
     create_table :budgets do |t|
       t.string :slug, null: false
-      t.integer :balance, default: 0
+      t.integer :monthly, default: 0
+      t.integer :weekly, default: 0
+      t.integer :daily, default: 0
 
       t.timestamps
+
+      t.index :slug
     end
 
     create_table :transactions do |t|

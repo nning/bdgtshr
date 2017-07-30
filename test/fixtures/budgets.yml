@@ -1,7 +1,10 @@
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
 one:
-  slug: MyString
+  slug: one
 
 two:
-  slug: MyString
+  slug: two
+
+three:
+  slug: three

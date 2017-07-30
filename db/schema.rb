@@ -14,9 +14,12 @@ ActiveRecord::Schema.define(version: 20170630105437) do
 
   create_table "budgets", force: :cascade do |t|
     t.string "slug", null: false
-    t.integer "balance", default: 0
+    t.integer "monthly", default: 0
+    t.integer "weekly", default: 0
+    t.integer "daily", default: 0
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.index ["slug"], name: "index_budgets_on_slug"
   end
 
   create_table "transactions", force: :cascade do |t|
