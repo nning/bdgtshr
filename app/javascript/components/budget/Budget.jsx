@@ -1,5 +1,7 @@
 import React from 'react'
 
+import { Spin } from 'antd'
+
 import BudgetDisplay from './BudgetDisplay.jsx'
 import TransactionList from './TransactionList.jsx'
 import AddTransaction from './AddTransaction.jsx'
@@ -9,7 +11,8 @@ export default class Budget extends React.Component {
     super(props)
 
     this.state = {
-      budget: props.budget
+      budget: props.budget,
+      loading: false
     }
   }
 
@@ -29,18 +32,32 @@ export default class Budget extends React.Component {
       },
       {
         received: (budget) => {
-          this.setState({budget: budget})
+          this.setState({budget: budget, loading: false})
         }
       }
     )
   }
 
+  setLoading(value) {
+    this.setState({loading: value})
+  }
+
   render() {
     return (
       <section className="Budget">
-        <BudgetDisplay budget={this.state.budget}/>
-        <AddTransaction path={this.props.path} csrf={this.props.csrf}/>
-        <TransactionList transactions={this.state.budget.recent_transactions}/>
+        <Spin spinning={this.state.loading} size="large">
+          <BudgetDisplay budget={this.state.budget}/>
+
+          <AddTransaction
+            path={this.props.path}
+            csrf={this.props.csrf}
+            setLoading={this.setLoading.bind(this)}
+            />
+
+          <TransactionList
+            transactions={this.state.budget.recent_transactions}
+            />
+        </Spin>
       </section>
     );
   }

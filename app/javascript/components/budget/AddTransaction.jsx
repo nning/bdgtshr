@@ -12,6 +12,12 @@ export default class AddTransaction extends React.Component {
 
   componentDidMount() {
     const form = ReactDOM.findDOMNode(this).querySelector('form')
+
+    form.addEventListener('ajax:send', () => {
+      console.log('ajax:send')
+      this.props.setLoading(true)
+    })
+
     form.addEventListener('ajax:success', () => {
       const input = form.querySelector('input[name="value"]')
       input.value = ''
