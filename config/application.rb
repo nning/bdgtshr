@@ -15,6 +15,9 @@ module Bdgtshr
     # Application configuration should go into files in config/initializers
     # -- all .rb files in that directory are automatically loaded.
 
-    config.autoload_paths << Rails.root.join('lib')
+    lib = Rails.root.join('lib')
+
+    config.autoload_paths << lib
+    config.eager_load_paths << lib
   end
 end
