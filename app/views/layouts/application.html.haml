@@ -3,13 +3,13 @@
 %html
   %head
     %title= content_for?(:title) ? yield(:title) : 'BDGTSHR'
-    
+
     %meta{charset: 'utf-8'}
     %meta{name: 'viewport', content: 'width=device-width, initial-scale=1.0'}
 
     = csrf_meta_tag
 
-    = stylesheet_link_tag 'application', media: :all, data: { turbolinks_track: true, turbolinks_eval: false }
+    = stylesheet_pack_tag 'application'
     = javascript_pack_tag 'application'
 
   %body

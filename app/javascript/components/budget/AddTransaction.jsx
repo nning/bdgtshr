@@ -1,6 +1,8 @@
 import React from 'react'
 import ReactDOM from 'react-dom'
 
+import { Button } from 'antd'
+
 export default class AddTransaction extends React.Component {
   constructor(props) {
     super(props)
@@ -21,19 +23,9 @@ export default class AddTransaction extends React.Component {
       <section className="AddTransaction">
         <form action={this.action} method="POST" data-remote="true">
           <input type="hidden" name={this.props.csrf.param} value={this.props.csrf.token}/>
-          <div className="columns is-mobile is-gapless">
-            <div className="column">
-              <input className="input" name="value"/>
-            </div>
-
-            <div className="column is-narrow">
-              <button className="button" name="subtract" type="submit">-</button>
-            </div>
-
-            <div className="column is-narrow">
-              <button className="button" type="submit">+</button>
-            </div>
-          </div>
+          <input name="value"/>
+          <Button name="subtract" htmlType="submit">-</Button>
+          <Button htmlType="submit">+</Button>
         </form>
       </section>
     );
