@@ -1,7 +1,7 @@
 import React from 'react'
 import ReactDOM from 'react-dom'
 
-import { Button } from 'antd'
+import { Button, Input } from 'antd'
 
 export default class AddTransaction extends React.Component {
   constructor(props) {
@@ -14,7 +14,6 @@ export default class AddTransaction extends React.Component {
     const form = ReactDOM.findDOMNode(this).querySelector('form')
 
     form.addEventListener('ajax:send', () => {
-      console.log('ajax:send')
       this.props.setLoading(true)
     })
 
@@ -28,10 +27,30 @@ export default class AddTransaction extends React.Component {
     return (
       <section className="AddTransaction">
         <form action={this.action} method="POST" data-remote="true">
-          <input type="hidden" name={this.props.csrf.param} value={this.props.csrf.token}/>
-          <input name="value"/>
-          <Button name="subtract" htmlType="submit">-</Button>
-          <Button htmlType="submit">+</Button>
+          <input type="hidden"
+            name={this.props.csrf.param}
+            value={this.props.csrf.token}
+            />
+
+          <Input
+            name="value"
+            size="large"
+            prefix="€"
+            />
+
+          <Button
+            name="subtract"
+            htmlType="submit"
+            type="primary"
+            size="large">
+            -
+          </Button>
+
+          <Button
+            htmlType="submit"
+            size="large">
+            +
+          </Button>
         </form>
       </section>
     );

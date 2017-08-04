@@ -22,4 +22,5 @@ ReactRailsUJS.useContext(componentRequireContext)
 import ActionCable from 'actioncable'
 window.cable = ActionCable.createConsumer()
 
+import '../../assets/stylesheets'
 import '../components/budget/Budget.jsx'

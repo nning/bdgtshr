@@ -8,6 +8,12 @@ export default class TransactionList extends React.Component {
       return <Transaction {...transaction}/>
     })
 
-    return <ul className="TransactionList">{transactions}</ul>
+    return (
+      <section className="TransactionList">
+        <ul>
+          {transactions}
+        </ul>
+      </section>
+    )
   }
 }
