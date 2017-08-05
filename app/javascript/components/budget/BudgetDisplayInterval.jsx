@@ -1,5 +1,7 @@
 import React from 'react'
 
+import Section from '../Section.jsx'
+
 export default class BudgetDisplayInterval extends React.Component {
   constructor(props) {
     super(props)
@@ -11,7 +13,7 @@ export default class BudgetDisplayInterval extends React.Component {
 
   render() {
     return (
-      <section className="BudgetDisplayInterval">
+      <Section name="BudgetDisplayInterval" marginBottom={false}>
         <span className="label">
           {this.props.interval}:
         </span>
@@ -25,7 +27,7 @@ export default class BudgetDisplayInterval extends React.Component {
         <span className="income">
           (of {this.props.income.toFixed(2)})
         </span>
-      </section>
+      </Section>
     );
   }
 }

@@ -3,6 +3,8 @@ import ReactDOM from 'react-dom'
 
 import { Button, Input } from 'antd'
 
+import Section from '../Section.jsx'
+
 export default class AddTransaction extends React.Component {
   constructor(props) {
     super(props)
@@ -25,7 +27,7 @@ export default class AddTransaction extends React.Component {
 
   render() {
     return (
-      <section className="AddTransaction">
+      <Section name="AddTransaction">
         <form action={this.action} method="POST" data-remote="true">
           <input type="hidden"
             name={this.props.csrf.param}
@@ -52,7 +54,7 @@ export default class AddTransaction extends React.Component {
             +
           </Button>
         </form>
-      </section>
+      </Section>
     );
   }
 }

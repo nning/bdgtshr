@@ -1,11 +1,13 @@
 import React from 'react'
 
+import Section from '../Section.jsx'
+
 import BudgetDisplayInterval from './BudgetDisplayInterval.jsx'
 
 export default class BudgetDisplay extends React.Component {
   render() {
     return (
-      <section className="BudgetDisplay">
+      <Section name="BudgetDisplay">
         <BudgetDisplayInterval
           interval="Monthly"
           budget={this.props.budget.monthly}
@@ -23,7 +25,7 @@ export default class BudgetDisplay extends React.Component {
           budget={this.props.budget.daily}
           income={this.props.budget.daily_income}
           />
-      </section>
+      </Section>
     );
   }
 }

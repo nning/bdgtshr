@@ -1,5 +1,7 @@
 import React from 'react'
 
+import Section from '../Section.jsx'
+
 import Transaction from './Transaction.jsx'
 
 export default class TransactionList extends React.Component {
@@ -9,11 +11,11 @@ export default class TransactionList extends React.Component {
     })
 
     return (
-      <section className="TransactionList">
+      <Section name="TransactionList">
         <ul>
           {transactions}
         </ul>
-      </section>
+      </Section>
     )
   }
 }
