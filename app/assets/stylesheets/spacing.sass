@@ -1,0 +1,11 @@
+$space: 1em
+
+.margin
+  &--bottom
+    margin-bottom: $space
+
+.section-gaps
+  @extend .margin--bottom
+
+  &:last-child
+    margin-bottom: initial

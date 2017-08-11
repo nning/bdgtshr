@@ -7,7 +7,7 @@ import BudgetDisplayInterval from './BudgetDisplayInterval.jsx'
 export default class BudgetDisplay extends React.Component {
   render() {
     return (
-      <Section name="BudgetDisplay">
+      <Section name="BudgetDisplay" title="Balance">
         <BudgetDisplayInterval
           interval="Monthly"
           budget={this.props.budget.monthly}

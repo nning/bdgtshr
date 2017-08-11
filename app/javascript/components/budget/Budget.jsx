@@ -2,6 +2,7 @@ import React from 'react'
 
 import { Row, Col, Spin } from 'antd'
 
+import Main from '../Main.jsx'
 import Section from '../Section.jsx'
 
 import BudgetDisplay from './BudgetDisplay.jsx'
@@ -46,21 +47,23 @@ export default class Budget extends React.Component {
 
   render() {
     return (
-      <Section name="Budget">
-        <Spin spinning={this.state.loading} size="large">
-          <BudgetDisplay budget={this.state.budget}/>
+      <Main slug={this.state.budget.slug}>
+        <Section>
+          <Spin spinning={this.state.loading} size="large">
+            <BudgetDisplay budget={this.state.budget}/>
 
-          <AddTransaction
-            path={this.props.path}
-            csrf={this.props.csrf}
-            setLoading={this.setLoading.bind(this)}
-            />
+            <AddTransaction
+              path={this.props.path}
+              csrf={this.props.csrf}
+              setLoading={this.setLoading.bind(this)}
+              />
 
-          <TransactionList
-            transactions={this.state.budget.recent_transactions}
-            />
-        </Spin>
-      </Section>
+            <TransactionList
+              transactions={this.state.budget.recent_transactions}
+              />
+          </Spin>
+        </Section>
+      </Main>
     );
   }
 }

@@ -11,7 +11,7 @@ export default class TransactionList extends React.Component {
     })
 
     return (
-      <Section name="TransactionList">
+      <Section name="TransactionList" title="Transactions">
         <ul>
           {transactions}
         </ul>

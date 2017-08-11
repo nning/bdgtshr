@@ -13,7 +13,7 @@ export default class BudgetDisplayInterval extends React.Component {
 
   render() {
     return (
-      <Section name="BudgetDisplayInterval" marginBottom={false}>
+      <Section name="BudgetDisplayInterval" gap={false}>
         <span className="label">
           {this.props.interval}:
         </span>

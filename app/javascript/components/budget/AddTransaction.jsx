@@ -27,7 +27,7 @@ export default class AddTransaction extends React.Component {
 
   render() {
     return (
-      <Section name="AddTransaction">
+      <Section name="AddTransaction" title="Add Transaction">
         <form action={this.action} method="POST" data-remote="true">
           <input type="hidden"
             name={this.props.csrf.param}
