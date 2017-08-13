@@ -2,14 +2,14 @@ import React from 'react'
 import PropTypes from 'prop-types';
 
 function getClasses(props, gap) {
-  let classes = props.name
+  let classes = props.name + ' Section'
 
   if (props.classes) {
     classes += ' ' + props.classes
   }
 
   if (gap) {
-    classes += ' section-gaps'
+    classes += ' Section--gaps'
   }
 
   return classes;
@@ -41,7 +41,7 @@ export default class Section extends React.Component {
   render() {
     let title = null
     if (this.props.title) {
-      title = <h2>{this.props.title}</h2>
+      title = <h2 className="Section--title">{this.props.title}</h2>
     }
 
     return (
@@ -55,7 +55,7 @@ export default class Section extends React.Component {
 
 Section.propTypes = {
   classes: PropTypes.string,
-  gap: PropTypes.boolean,
+  gap: PropTypes.bool,
   name: PropTypes.string.isRequired,
   title: PropTypes.string
 };

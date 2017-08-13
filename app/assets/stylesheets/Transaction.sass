@@ -1,0 +1,20 @@
+@import variables
+
+.Transaction
+  display: flex
+  justify-content: space-between
+
+  &--sign
+    color: $grey
+
+  &--value
+    font-weight: bold
+    font-size: 16px
+
+  &--positive
+    .Transaction--value
+      color: $green
+
+  &--negative
+    .Transaction--value
+      color: $red

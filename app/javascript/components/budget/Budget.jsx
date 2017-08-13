@@ -48,7 +48,7 @@ export default class Budget extends React.Component {
   render() {
     return (
       <Main slug={this.state.budget.slug}>
-        <Section>
+        <Section name="Budget">
           <Spin spinning={this.state.loading} size="large">
             <BudgetDisplay budget={this.state.budget}/>
 

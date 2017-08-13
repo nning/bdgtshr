@@ -1,7 +1,7 @@
 import React from 'react'
 import ReactDOM from 'react-dom'
 
-import { Button, Input } from 'antd'
+import { Button, Form, Input } from 'antd'
 
 import Section from '../Section.jsx'
 
@@ -28,32 +28,38 @@ export default class AddTransaction extends React.Component {
   render() {
     return (
       <Section name="AddTransaction" title="Add Transaction">
-        <form action={this.action} method="POST" data-remote="true">
+        <Form action={this.action} method="POST" data-remote="true" layout="inline">
           <input type="hidden"
             name={this.props.csrf.param}
             value={this.props.csrf.token}
             />
 
-          <Input
-            name="value"
-            size="large"
-            prefix="€"
-            />
+          <Form.Item>
+            <Input
+              name="value"
+              size="large"
+              prefix="€"
+              />
+          </Form.Item>
 
-          <Button
-            name="subtract"
-            htmlType="submit"
-            type="primary"
-            size="large">
-            -
-          </Button>
+          <Form.Item>
+            <Button
+              name="subtract"
+              htmlType="submit"
+              type="primary"
+              size="large">
+              -
+            </Button>
+          </Form.Item>
 
-          <Button
-            htmlType="submit"
-            size="large">
-            +
-          </Button>
-        </form>
+          <Form.Item>
+            <Button
+              htmlType="submit"
+              size="large">
+              +
+            </Button>
+          </Form.Item>
+        </Form>
       </Section>
     );
   }
