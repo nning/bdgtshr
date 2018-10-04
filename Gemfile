@@ -24,7 +24,7 @@ gem 'webpacker', '~> 2.0'
 group :development, :test do
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
   gem 'capybara', '~> 2.16', '>= 2.16.1'
-  gem 'selenium-webdriver'
+  gem 'selenium-webdriver', '>= 3.8.0'
   gem 'sqlite3'
 end
 
