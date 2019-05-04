@@ -6,13 +6,13 @@ git_source(:github) do |repo_name|
 end
 
 
-gem 'rails', '~> 5.1.6'
+gem 'rails', '~> 5.1.6', '>= 5.1.6.2'
 
 gem 'config'
 gem 'hamlit'
 gem 'jbuilder', '~> 2.5'
 gem 'puma', '~> 3.7'
-gem 'react-rails', '>= 2.4.3'
+gem 'react-rails', '>= 2.4.4'
 gem 'redis', '~> 3.0'
 gem 'sass-rails', '~> 5.0', '>= 5.0.7'
 gem 'turbolinks', '~> 5'
@@ -33,7 +33,7 @@ group :development do
   gem 'listen', '>= 3.0.5', '< 3.2'
   gem 'spring'
   gem 'spring-watcher-listen', '~> 2.0.0'
-  gem 'web-console', '>= 3.5.1'
+  gem 'web-console', '>= 3.6.2'
 end
 
 group :production do
